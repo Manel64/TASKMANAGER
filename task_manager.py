@@ -22,12 +22,14 @@ class TaskManager:
         for task in self._tasks:
             if task.id == task_id:
                 return task
+        print(f"Task with ID {task_id} not found.")
         return None
 
     def complete_task(self, task_id):
         task = self.get_task(task_id)
         if task:
             task.completed = True
+            print(f"Task completed: {task}")
             return task
         return None
 
@@ -35,6 +37,7 @@ class TaskManager:
         task = self.get_task(task_id)
         if task:
             self._tasks.remove(task)
+            print(f"Task deleted: {task}")
             return task
         return None
 
